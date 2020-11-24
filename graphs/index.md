@@ -21,7 +21,7 @@
 -   Adjacency List
 -   Adjacency Matrix
 
-# Graph Traversals
+## Graph Traversals
 
 -   DFS
 -   BFS
