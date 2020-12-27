@@ -32,6 +32,7 @@ using namespace std;
  * https://www.geeksforgeeks.org/unordered_set-in-cpp-stl/
  */
 
+/** Time complexity: O(n) where n is the length of the input string. */
 bool palindrome_permutation(string str)
 {
     unordered_set<char> set;
@@ -62,6 +63,7 @@ bool palindrome_permutation(string str)
         }
     }
 
+    // 1 is allowed for odd length cases.
     return set.size() <= 1;
 }
 
