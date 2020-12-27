@@ -28,7 +28,7 @@ using namespace std;
  * The benefit of an unordered_set is that
  * it averages O(1) runtime and O(n) worst case.
  * 
- * Unfamiliar with unordered_map? Check out this link:
+ * Unfamiliar with unordered_set? Check out this link:
  * https://www.geeksforgeeks.org/unordered_set-in-cpp-stl/
  */
 
