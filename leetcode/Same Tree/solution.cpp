@@ -15,7 +15,7 @@ public:
      * To compare two trees we must simply traverse them both and check if the nodes have the same value.
      * Any traversal method works, but in-order is the simplest to implement.
      *
-     * Time complexity - O(n + m) and Space complexity - O(1).
+     * Time complexity - O(n + m) and Space complexity - O(n) due to max depth of recursion tree.
      */
     bool isSameTree(TreeNode* p, TreeNode* q) {
         // Perform in-order traversal, comparing ea node.
