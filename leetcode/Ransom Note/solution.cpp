@@ -11,15 +11,7 @@ public:
         
         for (auto& c : magazine)
         {
-            // Not found.
-            if (letters.find(c) == letters.end())
-            {
-                letters[c] = 1;
-            }
-            else
-            {
-                letters[c]++;
-            }
+            letters[c]++;
         }
         
         for (auto& c : ransomNote)
