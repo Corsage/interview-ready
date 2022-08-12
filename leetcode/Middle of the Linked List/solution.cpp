@@ -10,6 +10,25 @@
  */
 class Solution {
 public:
+
+    /*
+     * We have a fast and slow pointer.
+     * The fast goes up two while the slow goes up one.
+     * When the fast is done, the slow should be midway.
+     */
+    ListNode* middleNode(ListNode* head) {
+        ListNode* f = head;
+        ListNode* s = head;
+        
+        while (f != nullptr && f->next != nullptr)
+        {
+            f = f->next->next;
+            s = s->next;
+        }
+        
+        return s;
+    }
+
     /*
      * LOL we cache the list because less than 100 nodes.
      * Fast. Easy.
