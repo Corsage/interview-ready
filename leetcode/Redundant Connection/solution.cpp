@@ -1,6 +1,61 @@
 class Solution {
 public:
 
+    int findParent(int v, vector<int>& parents) {
+        int res = parents[v];
+        
+        while (res != parents[res]) {
+            parents[res] = parents[parents[res]];
+            res = parents[res];
+        }
+        
+        return res;
+    }
+    
+    vector<int> findRedundantConnection(vector<vector<int>>& edges) {
+        vector<int> res(2);
+        int n = edges.size();
+        
+        // Keep track of graph rank and parent vertex.
+        // A vertex with no edges has a default rank of 1.
+        vector<int> ranks(n + 1, 1);
+        
+        // A vertex with no edges is default itself as a parent.
+        vector<int> parents(n + 1);
+        for (int i = 1; i <= n; i++) {
+            parents[i] = i;
+        }
+        
+        for (auto& edge : edges) {
+            int x = edge[0];
+            int y = edge[1];
+            
+            // If vertices have the same parent, it is a
+            // redundant connection as a path from x -> y
+            // already exists.
+            int xp = findParent(x, parents);
+            int yp = findParent(y, parents);
+            
+            if (xp == yp) {
+                res[0] = x;
+                res[1] = y;
+                break;
+            }
+            
+            // They have different parents, we merge the smaller
+            // rank to the larger one via union.
+            if (ranks[xp] >= ranks[yp]) {
+                parents[yp] = xp;
+                ranks[xp] += ranks[yp];
+            } else {
+                parents[xp] = yp;
+                ranks[yp] += ranks[xp];
+            }
+        }
+        
+        return res;
+    }
+
     /**
      * Find the union of two sets.
      * If two elements are already in the same set,
